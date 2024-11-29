@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { ads } from "../data";
 
-const ImageCycler: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0); // Índice atual da imagem
+interface Props {
+  adType: "default" | "rain" | "sun";
+}
+const ImageCycler: React.FC<Props> = ({ adType = "default" }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % ads.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % ads[adType].length);
     }, 3000);
 
     return () => clearInterval(intervalId);
-  }, [ads.length]);
+  }, [ads[adType].length]);
 
   return (
-    <a href={ads[currentIndex].link}>
+    <a href={ads[adType][currentIndex].link}>
       <img
-        className="rounded-lg"
-        src={ads[currentIndex].img}
+        className="rounded-lg h-60"
+        src={ads[adType][currentIndex].img}
         alt={`Imagem ${currentIndex + 1}`}
-        style={{ width: "100%", height: "auto" }}
+        style={{ width: "100%" }}
       />
     </a>
   );

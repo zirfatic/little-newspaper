@@ -12,7 +12,7 @@ export default defineConfig({
       remotes: {
         ads: "ads@http://localhost:3000/mf-manifest.json",
         news: "news@http://localhost:3001/mf-manifest.json",
-        weather: "weather@http://localhost:3003/mf-manifest.json",
+        weather: "weather@http://localhost:3004/mf-manifest.json",
         sponsors: "sponsors@http://localhost:3002/mf-manifest.json",
       },
       shared: ["react", "react-dom"],
