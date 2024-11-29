@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.weather-widget {
+    border: 1px solid #10658E;
+    border-radius: 8px
+}
